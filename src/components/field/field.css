@@ -1,0 +1,7 @@
+.field {
+    width: 650px;
+    height: 500px;
+    background-image: url('furbolnoe-pole-a4.jpg');
+    background-repeat: no-repeat;
+    background-size:contain;
+}

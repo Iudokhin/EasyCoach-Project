@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
+import Field from './components/field/Field';
+import ParsedTable from './components/table/ParsedTable';
+import { MAP, TABLE } from './utils/constants/constants';
+
 
 function App() {
+  const [state, setState] = useState(TABLE)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className='d-flex justify-content-center my-5 gap-4'>
+        <button className={state === TABLE ? 'btn btn-secondary': 'btn btn-primary'} onClick={() => setState(TABLE)}>TABLE</button>
+        <button className={state === MAP ? 'btn btn-secondary': 'btn btn-primary'} onClick={() => setState(MAP)}>GOAL MAP</button>
+      </div>
+      {state === TABLE 
+        ?
+        <ParsedTable />
+        :
+        <Field />
+      }
     </div>
-  );
+  )
 }
 
 export default App;
+
+
